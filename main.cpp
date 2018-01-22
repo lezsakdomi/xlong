@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	Xlong<int> i;
+	Xlong<unsigned> i;
 	cin>>i;
 	cout<<i*2;
 }
