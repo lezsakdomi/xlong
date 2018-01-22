@@ -23,6 +23,15 @@ public:
 	Xlong(const T& value, bool sign=true): value(1, value), sign(sign) {}
 	Xlong(const T& value, signed sign): Xlong(value*sign, sign>0) {}
 
+	bool operator<(const T& o) const;
+	bool operator<(const Xlong<T>& o) const;
+	bool operator>(const T& o) const { return (Xlong<T>)o < *this; }
+	bool operator>(const Xlong<T>& o) const { return o < *this; }
+	bool operator!=(const T& o) { return *this < o || *this > o; }
+	bool operator!=(const Xlong<T>& o) { return *this < o || *this > o; }
+	bool operator==(const T& o) { return !( *this != o ); }
+	bool operator==(const Xlong<T>& o) { return !( *this != o ); }
+
 	Xlong<T>& negate();
 	Xlong<T>& operator+=(const Xlong<T>& o);
 	Xlong<T>& operator-=(const Xlong<T>& o) { return *this += -o; };
