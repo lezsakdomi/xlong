@@ -7,11 +7,6 @@
 #include <vector>
 #include <limits>
 
-template <typename T> class Xlong;
-
-template<typename T> std::istream& operator>>(std::istream& stream, Xlong<T> xlong);
-template<typename T> std::ostream& operator<<(std::ostream& stream, Xlong<T> xlong);
-
 template <typename T>
 class Xlong {
 protected:
@@ -47,10 +42,9 @@ public:
 	template<typename T2> T2 operator%(const T2& o) const;
 	Xlong<T> operator%(const Xlong<T>& o) const { Xlong<T> copy(*this); return copy %= o; }
 
-	/*
-	template<typename T_> friend std::istream& operator<<(std::istream& stream, const Xlong<T_>& xlong);
-	template<typename T_> friend std::ostream& operator>>(std::ostream& stream, const Xlong<T_>& xlong);
-	*/
 };
+
+template<typename T> std::istream& operator>>(std::istream& stream, Xlong<T>& xlong);
+template<typename T> std::ostream& operator<<(std::ostream& stream, Xlong<T> xlong);
 
 #endif // xlong_h
