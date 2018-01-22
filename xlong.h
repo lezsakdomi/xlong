@@ -37,12 +37,15 @@ public:
 	Xlong<T>& operator-=(const Xlong<T>& o) { return *this += -o; };
 	Xlong<T>& operator*=(const Xlong<T>& o);
 	Xlong<T>& operator/=(const Xlong<T>& o);
+	Xlong<T>& operator%=(const Xlong<T>& o);
 	
 	Xlong<T> operator-() const { Xlong<T> copy(*this); return copy.negate(); };
 	Xlong<T> operator+(const Xlong<T>& o) const { Xlong<T> copy(*this); return copy += o; }
 	Xlong<T> operator-(const Xlong<T>& o) const { Xlong<T> copy(*this); return copy -= o; }
 	Xlong<T> operator*(const Xlong<T>& o) const { Xlong<T> copy(*this); return copy *= o; }
 	Xlong<T> operator/(const Xlong<T>& o) const { Xlong<T> copy(*this); return copy /= o; }
+	template<typename T2> T2 operator%(const T2& o) const;
+	Xlong<T> operator%(const Xlong<T>& o) const { Xlong<T> copy(*this); return copy %= o; }
 
 	/*
 	template<typename T_> friend std::istream& operator<<(std::istream& stream, const Xlong<T_>& xlong);
