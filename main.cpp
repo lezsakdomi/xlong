@@ -6,6 +6,6 @@ using namespace std;
 
 int main() {
 	Xlong<unsigned> i;
-	cin>>i;
-	cout<<i*2;
+	cout<<"i="; cin>>i;
+	cout<<"2i="<<i+i;
 }
